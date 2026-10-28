@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Moderna Minimalista - Creaciones Harú">
+<title>Moderna Minimalista - Creaciones Harú</title>
+<link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class'}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+body{font-family:Inter,sans-serif} h1,h2,h3{font-family:Sora,sans-serif}
+.glass{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.dark .glass{background:rgba(15,23,42,0.7)}
+.card-hover{transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s ease,border-color .4s ease}
+.card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px -10px rgba(0,0,0,.12)}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.img-cover{width:100%;height:100%;object-fit:cover;display:block}
+.btn-spinner{display:inline-block;width:18px;height:18px;margin-right:8px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;vertical-align:middle;animation:btnspin .7s linear infinite}
+@keyframes btnspin{to{transform:rotate(360deg)}}
+.form-status.show{animation:statusIn .45s cubic-bezier(.21,1.02,.73,1) both}
+@keyframes statusIn{from{opacity:0;transform:translateY(-10px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.form-status.show{animation:none}}
+button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none}
+.nav-link{position:relative}
+.nav-link.active{color:#7C3AED}
+.nav-link.active::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;background:#7C3AED;border-radius:2px}
+@media (max-width:767px){.nav-link.active::after{display:none}}
+.mobile-link.active{color:#7C3AED;background:rgba(0,0,0,.03)}
+.dark .mobile-link.active{background:rgba(255,255,255,.06)}
+</style>
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<nav class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center gap-3">
+<a href="../index.html" class="flex items-center gap-2 shrink-0">
+<img src="../assets/logo.svg" width="34" height="34" alt="Creaciones Harú logo">
+<span class="font-bold text-base tracking-tight">CREACIONES <span style="color:#7C3AED">HARÚ</span></span>
+</a>
+<div class="hidden md:flex gap-4 items-center flex-1 justify-center px-4"><a href="#landing" class="nav-link text-xs font-semibold hover:opacity-70 transition whitespace-nowrap">Landing que Vende</a><a href="#ventas" class="nav-link text-xs font-semibold hover:opacity-70 transition whitespace-nowrap">Área de Ventas</a><a href="#capacitacion" class="nav-link text-xs font-semibold hover:opacity-70 transition whitespace-nowrap">Capacitación</a><a href="#planes" class="nav-link text-xs font-semibold hover:opacity-70 transition whitespace-nowrap">Planes</a><a href="#portafolio" class="nav-link text-xs font-semibold hover:opacity-70 transition whitespace-nowrap">Portafolio</a><a href="#contacto" class="nav-link text-xs font-semibold hover:opacity-70 transition whitespace-nowrap">Contacto</a></div>
+<div class="flex gap-2 items-center shrink-0">
+<button data-theme-toggle class="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center"><span data-theme-icon>🌙</span></button>
+<a href="https://wa.me/56944685085" class="hidden sm:block bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap">Contacto</a>
+<button id="menu-toggle" class="md:hidden ml-1 w-9 h-9 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+<svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+<svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+</button>
+</div>
+</div>
+<div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur">
+<div class="px-6 py-4 flex flex-col gap-1">
+<a href="#landing" class="mobile-link text-sm font-semibold py-2.5 border-b border-slate-100 dark:border-slate-800/60">Landing que Vende</a><a href="#ventas" class="mobile-link text-sm font-semibold py-2.5 border-b border-slate-100 dark:border-slate-800/60">Área de Ventas</a><a href="#capacitacion" class="mobile-link text-sm font-semibold py-2.5 border-b border-slate-100 dark:border-slate-800/60">Capacitación</a><a href="#planes" class="mobile-link text-sm font-semibold py-2.5 border-b border-slate-100 dark:border-slate-800/60">Planes</a><a href="#portafolio" class="mobile-link text-sm font-semibold py-2.5 border-b border-slate-100 dark:border-slate-800/60">Portafolio</a><a href="#contacto" class="mobile-link text-sm font-semibold py-2.5 border-b border-slate-100 dark:border-slate-800/60">Contacto</a><a href="../index.html" class="mobile-link text-sm font-semibold py-2.5 border-b border-slate-100 dark:border-slate-800/60">← Volver al inicio</a>
+<a href="https://wa.me/56944685085" class="mt-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-5 py-2.5 rounded-full text-sm font-bold text-center whitespace-nowrap">Contacto por WhatsApp</a>
+</div>
+</div>
+</nav>
+<script>
+(function(){
+  var t=document.getElementById('menu-toggle'),m=document.getElementById('mobile-menu'),
+      io=document.getElementById('icon-open'),ic=document.getElementById('icon-close');
+  if(!t||!m)return;
+  function set(open){m.classList.toggle('hidden',!open);io.classList.toggle('hidden',open);ic.classList.toggle('hidden',!open);t.setAttribute('aria-expanded',open?'true':'false');}
+  t.addEventListener('click',function(){set(m.classList.contains('hidden'));});
+  m.querySelectorAll('.mobile-link').forEach(function(l){l.addEventListener('click',function(){set(false);});});
+  window.addEventListener('resize',function(){if(window.innerWidth>=768)set(false);});
+})();
+</script>
+
+<header class="max-w-7xl mx-auto px-6 py-24 text-center reveal" style="transition-delay:50ms">
+<div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Limpieza y conversión directa</div>
+<h1 class="text-5xl md:text-7xl font-extrabold leading-[1] mb-6" style="background:linear-gradient(135deg,#7C3AED 0%,#06B6D4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Moderna Minimalista</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">Diseño limpio, mucho aire y tipografía destacada. Ideal para marcas que buscan elegancia sobria y conversión directa.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<a href="#landing" class="px-8 py-3.5 rounded-full font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-500 shadow-[0_8px_24px_rgba(124,58,237,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Landing que Vende</a>
+<a href="#ventas" class="px-8 py-3.5 rounded-full font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-500 shadow-[0_8px_24px_rgba(124,58,237,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Área de Ventas</a>
+<a href="#capacitacion" class="px-8 py-3.5 rounded-full font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-500 shadow-[0_8px_24px_rgba(124,58,237,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Capacitación</a>
+</div>
+</header>
+
+<section class="py-24 max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-12 items-center reveal" style="transition-delay:100ms">
+<div>
+<div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Limpieza y conversión directa</div>
+<h1 class="text-5xl md:text-6xl font-extrabold leading-[1] mb-6">Landing que Vende</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-md">Diseñamos landing pages estratégicas que convierten. Cada elemento está pensado para guiar al visitante hacia la acción: ya sea una compra, una reserva o una consulta.</p>
+<div class="flex gap-4">
+<a href="#contacto" class="px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-500 shadow-[0_8px_24px_rgba(124,58,237,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Ver landings</a>
+<a href="https://wa.me/56944685085?text=Hola%20Creaciones%20Haru,%20quiero%20informaci%C3%B3n%20sobre%20Landing%20que%20Vende" class="px-8 py-3.5 rounded-xl font-bold border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all whitespace-nowrap">WhatsApp</a>
+</div>
+</div>
+<div class="relative">
+<div class="absolute inset-0 bg-gradient-to-br from-violet-600 to-cyan-500 opacity-20 rounded-3xl blur-xl"></div>
+<div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl aspect-video">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/propuesta-1-moderna-landing.svg'" alt="Landing que Vende" class="w-full h-full object-cover img-cover rounded-3xl shadow-xl">
+</div>
+</div>
+</div>
+</section>
+
+<section id="landing" class="py-24 bg-slate-50 dark:bg-slate-900/30 max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16 items-center reveal" style="transition-delay:200ms">
+<div class="relative"><div class="absolute inset-0 bg-violet-600 to-cyan-500 opacity-15 rounded-3xl blur-xl"></div>
+<div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl aspect-video">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/propuesta-1-moderna-landing.svg'" alt="Landing que Vende" class="w-full h-full object-cover img-cover rounded-3xl shadow-xl">
+</div></div>
+<div><div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Moderna Minimalista</div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Landing que Vende</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">Tu presencia digital, optimizada para vender</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4 reveal" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">🎯</div><div><h3 class="text-xl font-bold mb-2">Diseño enfocado en conversión</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Estructura de ventas probada, copy persuasivo y llamadas a la acción estratégicas.</p></div></div>
+<div class="flex items-start gap-4 reveal" style="transition-delay:300ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">🔒</div><div><h3 class="text-xl font-bold mb-2">Responsive y móvil primero</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Se ve perfecta en todos los dispositivos. Más del 70% del tráfico viene de móviles.</p></div></div>
+<div class="flex items-start gap-4 reveal" style="transition-delay:400ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">🌐</div><div><h3 class="text-xl font-bold mb-2">Integración con Meta Ads</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Píxel de Facebook, seguimiento de conversiones y campañas optimizadas desde el día uno.</p></div></div>
+<div class="flex items-start gap-4 reveal" style="transition-delay:500ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">⚡</div><div><h3 class="text-xl font-bold mb-2">Entrega en 7 días hábiles</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Desde el brief hasta el lanzamiento, tu landing está lista en una semana.</p></div></div>
+</div></div></div>
+</section>
+
+<section class="py-24 max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-12 items-center reveal" style="transition-delay:100ms">
+<div>
+<div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Limpieza y conversión directa</div>
+<h1 class="text-5xl md:text-6xl font-extrabold leading-[1] mb-6">Área de Ventas</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-md">Nosotros buscamos los clientes por ti. Publicamos tu servicio en nuestras redes con campañas segmentadas y te entregamos contactos interesados, ya filtrados y listos para tu equipo comercial.</p>
+<div class="flex gap-4">
+<a href="#contacto" class="px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-500 shadow-[0_8px_24px_rgba(124,58,237,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Quiero leads</a>
+<a href="https://wa.me/56944685085?text=Hola%20Creaciones%20Haru,%20quiero%20informaci%C3%B3n%20sobre%20%C3%81rea%20de%20Ventas" class="px-8 py-3.5 rounded-xl font-bold border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all whitespace-nowrap">WhatsApp</a>
+</div>
+</div>
+<div class="relative"><div class="absolute inset-0 bg-violet-600 to-cyan-500 opacity-20 rounded-3xl blur-xl"></div>
+<div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl aspect-video"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/propuesta-1-moderna-ventas.svg'" alt="Área de Ventas" class="w-full h-full object-cover img-cover rounded-3xl shadow-xl"></div></div>
+</div>
+</section>
+
+<section id="ventas" class="py-24 bg-slate-50 dark:bg-slate-900/30 max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16 items-center reveal" style="transition-delay:200ms">
+<div class="relative"><div class="absolute inset-0 bg-violet-600 to-cyan-500 opacity-15 rounded-3xl blur-xl"></div>
+<div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl aspect-video"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/propuesta-1-moderna-ventas.svg'" alt="Área de Ventas" class="w-full h-full object-cover img-cover rounded-3xl shadow-xl"></div></div>
+<div><div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Moderna Minimalista</div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Área de Ventas</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">Contactos filtrados, listos para cerrar</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4 reveal" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">🎯</div><div><h3 class="text-xl font-bold mb-2">Desde $120.000 + IVA</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Planes accesibles para todo tipo de negocio, sin costos ocultos ni sorpresas.</p></div></div>
+<div class="flex items-start gap-4 reveal" style="transition-delay:300ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">🔒</div><div><h3 class="text-xl font-bold mb-2">Sin pedir claves</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Publicamos desde nuestras redes y entregamos los leads por formulario. Tú mantienes el control.</p></div></div>
+<div class="flex items-start gap-4 reveal" style="transition-delay:400ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">🌐</div><div><h3 class="text-xl font-bold mb-2">15+ rubros disponibles</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Inmobiliaria, autos, Isapre, dental, estética, construcción y más.</p></div></div>
+<div class="flex items-start gap-4 reveal" style="transition-delay:500ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">⚡</div><div><h3 class="text-xl font-bold mb-2">Resultado en días</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Las campañas se activan rápido y los primeros contactos llegan en los primeros días.</p></div></div>
+</div></div></div>
+</section>
+
+<section class="py-24 max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-12 items-center reveal" style="transition-delay:100ms">
+<div>
+<div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Limpieza y conversión directa</div>
+<h1 class="text-5xl md:text-6xl font-extrabold leading-[1] mb-6">Capacitación</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-md">Taller práctico de Creaciones Haru: de cero a landing lista con copy, diseño y Meta Ads.</p>
+<div class="flex gap-4">
+<a href="#contacto" class="px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-500 shadow-[0_8px_24px_rgba(124,58,237,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Inscribirme</a>
+<a href="https://wa.me/56944685085?text=Hola%20Creaciones%20Haru,%20quiero%20informaci%C3%B3n%20sobre%20Capacitaci%C3%B3n" class="px-8 py-3.5 rounded-xl font-bold border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all whitespace-nowrap">WhatsApp</a>
+</div>
+</div>
+<div class="relative"><div class="absolute inset-0 bg-violet-600 to-cyan-500 opacity-20 rounded-3xl blur-xl"></div>
+<div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl aspect-video"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/propuesta-1-moderna-capacitacion.svg'" alt="Capacitación" class="w-full h-full object-cover img-cover rounded-3xl shadow-xl"></div></div>
+</div>
+</section>
+
+<section id="capacitacion" class="py-24 bg-slate-50 dark:bg-slate-900/30 max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16 items-center reveal" style="transition-delay:200ms">
+<div class="relative"><div class="absolute inset-0 bg-violet-600 to-cyan-500 opacity-15 rounded-3xl blur-xl"></div>
+<div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl aspect-video"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/propuesta-1-moderna-capacitacion.svg'" alt="Capacitación" class="w-full h-full object-cover img-cover rounded-3xl shadow-xl"></div></div>
+<div><div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Moderna Minimalista</div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Capacitación</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">Aprende a crear landings que venden</p>
+<div class="space-y-6">
+<div class="flex items-start gap-4 reveal" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">🎯</div><div><h3 class="text-xl font-bold mb-2">4 módulos prácticos</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Copy persuasivo, diseño estratégico, desarrollo con Tailwind y campañas de Meta Ads.</p></div></div>
+<div class="flex items-start gap-4 reveal" style="transition-delay:300ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">🔒</div><div><h3 class="text-xl font-bold mb-2">Certificado Haru</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Obtén tu certificado de Creaciones Haru al completar la capacitación.</p></div></div>
+<div class="flex items-start gap-4 reveal" style="transition-delay:400ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">🌐</div><div><h3 class="text-xl font-bold mb-2">Mentoría 1:1</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Construye tu propia landing junto a nuestros expertos en sesiones personalizadas.</p></div></div>
+<div class="flex items-start gap-4 reveal" style="transition-delay:500ms"><div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center text-violet-600 dark:text-violet-400 text-xl flex-shrink-0">⚡</div><div><h3 class="text-xl font-bold mb-2">Plantilla incluida</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Lleva una plantilla lista para usar y adaptar a tu negocio inmediatamente.</p></div></div>
+</div></div></div>
+</section>
+
+<section class="py-24 max-w-7xl mx-auto px-6 reveal" style="transition-delay:300ms">
+<div class="text-center mb-16"><div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Proceso</div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Nuestro proceso</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Desde la idea hasta el lanzamiento, te acompañamos en cada paso.</p></div>
+<div class="grid md:grid-cols-4 gap-8">
+<div class="text-center reveal" style="transition-delay:200ms"><div class="w-14 h-14 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-2xl font-bold text-violet-600 dark:text-violet-400">01</span></div><h3 class="text-xl font-bold mb-3">Brief y estrategia</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Entendemos tu rubro, cliente ideal y objetivos.</p></div>
+<div class="text-center reveal" style="transition-delay:300ms"><div class="w-14 h-14 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-2xl font-bold text-violet-600 dark:text-violet-400">02</span></div><h3 class="text-xl font-bold mb-3">Diseño y copy</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Wireframe, copy persuasivo y diseño visual.</p></div>
+<div class="text-center reveal" style="transition-delay:400ms"><div class="w-14 h-14 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-2xl font-bold text-violet-600 dark:text-violet-400">03</span></div><h3 class="text-xl font-bold mb-3">Desarrollo</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Tailwind + JS vanilla, píxel y optimización móvil.</p></div>
+<div class="text-center reveal" style="transition-delay:500ms"><div class="w-14 h-14 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-2xl font-bold text-violet-600 dark:text-violet-400">04</span></div><h3 class="text-xl font-bold mb-3">Lanzamiento</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Publicación, campañas y seguimiento de métricas.</p></div>
+</div>
+</section>
+
+<section id="planes" class="py-24 bg-white dark:bg-slate-950 max-w-7xl mx-auto px-6 reveal" style="transition-delay:400ms">
+<div class="text-center mb-16"><div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Planes</div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Planes que se ajustan a ti</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Elige el plan que mejor se adapte a tu negocio.</p></div>
+<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+<div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 relative">
+<div class="space-y-4"><h3 class="text-xl font-bold">Starter</h3>
+<p class="text-3xl font-bold text-violet-600 dark:text-violet-400">$197.000 <span class="text-lg font-normal text-slate-500 dark:text-slate-400">+ IVA</span></p>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Ideal para empezar</p>
+<ul class="space-y-3 mb-8"><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>1 landing + copy</li><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>Responsive</li><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>WhatsApp integrado</li></ul>
+<a href="#contacto" class="block w-full text-center py-3.5 rounded-xl font-bold text-white bg-violet-600 dark:bg-violet-500 hover:opacity-90 transition-all">Empezar</a></div></div>
+<div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 relative ring-2 ring-violet-600 scale-105 z-10">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-xs font-bold px-3 py-1 rounded-full">Más popular</div>
+<div class="space-y-4"><h3 class="text-xl font-bold">Profesional</h3>
+<p class="text-3xl font-bold text-violet-600 dark:text-violet-400">$347.000 <span class="text-lg font-normal text-slate-500 dark:text-slate-400">+ IVA</span></p>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Lo más completo</p>
+<ul class="space-y-3 mb-8"><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>2 landings + copy</li><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>Responsive + Ads</li><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>WhatsApp + Pixel</li><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>Formulario</li></ul>
+<a href="#contacto" class="block w-full text-center py-3.5 rounded-xl font-bold text-white bg-violet-600 dark:bg-violet-500 hover:opacity-90 transition-all">Empezar</a></div></div>
+<div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 relative">
+<div class="space-y-4"><h3 class="text-xl font-bold">Premium</h3>
+<p class="text-3xl font-bold text-violet-600 dark:text-violet-400">$547.000 <span class="text-lg font-normal text-slate-500 dark:text-slate-400">+ IVA</span></p>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Para escalar</p>
+<ul class="space-y-3 mb-8"><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>3 landings + copy</li><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>Meta Ads</li><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>SEO</li><li class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400"><span class="text-violet-600 dark:text-violet-400">✔</span>Soporte 30 días</li></ul>
+<a href="#contacto" class="block w-full text-center py-3.5 rounded-xl font-bold text-white bg-violet-600 dark:bg-violet-500 hover:opacity-90 transition-all">Empezar</a></div></div>
+</div>
+</section>
+
+<section class="py-24 bg-slate-50 dark:bg-slate-900/30 max-w-7xl mx-auto px-6 reveal" style="transition-delay:500ms">
+<div class="text-center mb-16"><div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Testimonios</div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Lo que dicen nuestros clientes</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Historias reales de negocios que crecieron con Creaciones Haru.</p></div>
+<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+<div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800"><div class="flex items-center gap-4 mb-6"><img src="../img/avatar-mg.svg" alt="María González" class="w-12 h-12 rounded-full object-cover"><div><h3 class="text-lg font-bold">María González</h3><p class="text-sm text-slate-500 dark:text-slate-400">Fundadora, EcoStore</p></div></div><div class="text-yellow-400 text-sm mb-4">⭐⭐⭐⭐⭐</div><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed italic">"La landing triplicó nuestras conversiones."</p></div>
+<div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800"><div class="flex items-center gap-4 mb-6"><img src="../img/avatar-cr.svg" alt="Carlos Ruiz" class="w-12 h-12 rounded-full object-cover"><div><h3 class="text-lg font-bold">Carlos Ruiz</h3><p class="text-sm text-slate-500 dark:text-slate-400">CEO, TechFlow</p></div></div><div class="text-yellow-400 text-sm mb-4">⭐⭐⭐⭐⭐</div><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed italic">"25 leads calificados en dos semanas."</p></div>
+<div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800"><div class="flex items-center gap-4 mb-6"><img src="../img/avatar-sm.svg" alt="Sofía Méndez" class="w-12 h-12 rounded-full object-cover"><div><h3 class="text-lg font-bold">Sofía Méndez</h3><p class="text-sm text-slate-500 dark:text-slate-400">Emprendedora</p></div></div><div class="text-yellow-400 text-sm mb-4">⭐⭐⭐⭐⭐</div><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed italic">"El taller fue increíble, hago mis propias landings."</p></div>
+</div>
+</section>
+
+<section id="portafolio" class="py-24 bg-slate-50 dark:bg-slate-900/30 max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 reveal" style="transition-delay:100ms"><div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Nuestros trabajos</div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6">Portafolio</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Proyectos reales que hemos desarrollado para nuestros clientes.</p></div>
+<div class="relative"><button onclick="moverCarousel(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-900 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all z-10"><svg class="w-6 h-6 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+<button onclick="moverCarousel(1)" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-900 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all z-10"><svg class="w-6 h-6 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+<div id="carousel-portafolio" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide reveal" style="transition-delay:200ms; scrollbar-width: none;">
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md hover:shadow-xl transition-all group cursor-pointer" onclick="window.open('#', '_blank')"><div class="h-48 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=480&h=360&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/portfolio-1.svg'" alt="E-commerce Moda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"><div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><span class="text-white font-bold text-lg">Ver proyecto →</span></div></div><div class="p-5"><h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">E-commerce Moda</h3><p class="text-sm text-slate-500 dark:text-slate-400">Tienda online de ropa</p></div></div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md hover:shadow-xl transition-all group cursor-pointer" onclick="window.open('#', '_blank')"><div class="h-48 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=480&h=360&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/portfolio-2.svg'" alt="App Delivery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"><div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><span class="text-white font-bold text-lg">Ver proyecto →</span></div></div><div class="p-5"><h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">App Delivery</h3><p class="text-sm text-slate-500 dark:text-slate-400">Plataforma de comida</p></div></div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md hover:shadow-xl transition-all group cursor-pointer" onclick="window.open('#', '_blank')"><div class="h-48 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=480&h=360&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/portfolio-3.svg'" alt="Inmobiliaria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"><div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><span class="text-white font-bold text-lg">Ver proyecto →</span></div></div><div class="p-5"><h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">Inmobiliaria</h3><p class="text-sm text-slate-500 dark:text-slate-400">Portal de propiedades</p></div></div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md hover:shadow-xl transition-all group cursor-pointer" onclick="window.open('#', '_blank')"><div class="h-48 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=480&h=360&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/portfolio-4.svg'" alt="Clínica Dental" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"><div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><span class="text-white font-bold text-lg">Ver proyecto →</span></div></div><div class="p-5"><h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">Clínica Dental</h3><p class="text-sm text-slate-500 dark:text-slate-400">Consultorio odontológico</p></div></div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md hover:shadow-xl transition-all group cursor-pointer" onclick="window.open('#', '_blank')"><div class="h-48 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=480&h=360&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/portfolio-5.svg'" alt="Gym & Fitness" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"><div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><span class="text-white font-bold text-lg">Ver proyecto →</span></div></div><div class="p-5"><h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">Gym & Fitness</h3><p class="text-sm text-slate-500 dark:text-slate-400">Centro de entrenamiento</p></div></div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md hover:shadow-xl transition-all group cursor-pointer" onclick="window.open('#', '_blank')"><div class="h-48 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=480&h=360&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/portfolio-6.svg'" alt="Legal Consulting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"><div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><span class="text-white font-bold text-lg">Ver proyecto →</span></div></div><div class="p-5"><h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">Legal Consulting</h3><p class="text-sm text-slate-500 dark:text-slate-400">Despacho de abogados</p></div></div>
+</div></div>
+<div class="mt-8 text-center reveal" style="transition-delay:300ms"><a href="#" class="text-violet-600 dark:text-violet-400 font-semibold hover:underline text-sm whitespace-nowrap">Ver todos los proyectos →</a></div></div>
+</section>
+<script>
+function moverCarousel(d){var c=document.getElementById('carousel-portafolio');var i=document.querySelectorAll('#carousel-portafolio > div');if(!c||!i.length)return;var w=i[0].offsetWidth+24;var m=c.scrollWidth-c.clientWidth;var n=Math.max(0,Math.min(m,c.scrollLeft+(w*d)));c.scrollTo({left:n,behavior:'smooth'});}
+setInterval(function(){var c=document.getElementById('carousel-portafolio');var i=document.querySelectorAll('#carousel-portafolio > div');if(!c||!i.length)return;var w=i[0].offsetWidth+24;var m=c.scrollWidth-c.clientWidth;if(c.scrollLeft>=m-10){c.scrollTo({left:0,behavior:'smooth'});}else{c.scrollTo({left:c.scrollLeft+w,behavior:'smooth'});}},5000);
+</script>
+
+<section id="contacto" class="py-24 bg-gradient-to-br from-slate-50 dark:from-slate-950/50 to-white dark:to-slate-950 max-w-7xl mx-auto px-6">
+<div class="glass rounded-3xl p-8 md:p-12 border border-white/50 dark:border-slate-800/50 shadow-2xl reveal" style="transition-delay:600ms">
+<div class="text-center mb-10"><div class="inline-flex bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Moderna Minimalista</div>
+<h2 class="text-3xl md:text-4xl font-bold mb-4">Solicita tu cotización</h2>
+<p class="text-slate-600 dark:text-slate-400">Cuéntanos qué necesitas y te respondemos a la brevedad.</p></div>
+<div class="form-status mb-4 p-3 rounded text-sm font-medium hidden" role="status" aria-live="polite"></div>
+<form action="../enviar.php" method="POST" class="space-y-4" id="form-contacto">
+<input type="hidden" name="origen" value="propuesta-1-moderna/index.html">
+<input type="hidden" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
+<input type="hidden" name="correo2" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;">
+<input type="hidden" name="ts" value="">
+<div class="grid md:grid-cols-2 gap-4">
+<div><label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Nombre completo *</label><input type="text" name="nombre" required minlength="6" maxlength="120" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-violet-600 focus:border-violet-600 outline-none transition-all"></div>
+<div><label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Teléfono *</label><input type="tel" name="telefono" required maxlength="24" placeholder="+56 9 XXXX XXXX" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-violet-600 focus:border-violet-600 outline-none transition-all"></div>
+</div><div class="grid md:grid-cols-2 gap-4">
+<div><label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Correo electrónico *</label><input type="email" name="email" required maxlength="160" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-violet-600 focus:border-violet-600 outline-none transition-all"></div>
+<div><label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Empresa</label><input type="text" name="empresa" maxlength="120" placeholder="Tu empresa (opcional)" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-violet-600 focus:border-violet-600 outline-none transition-all"></div>
+</div><div><label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Mensaje *</label><textarea name="mensaje" required minlength="6" maxlength="4000" rows="5" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-violet-600 focus:border-violet-600 outline-none transition-all"></textarea></div>
+<div class="flex items-start gap-3 mt-2"><input type="checkbox" name="terminos" value="1" required class="mt-1 rounded border-slate-300 dark:border-slate-600 text-violet-600 focus:ring-violet-600"><label class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Acepto la <a href="../privacidad.html" class="text-violet-600 dark:text-violet-400 underline underline-offset-4 hover:no-underline" target="_blank" rel="noopener">Política de Privacidad</a> y autorizo el tratamiento de mis datos personales conforme a la Ley 21.719 de Chile.</label></div>
+<button type="submit" class="w-full py-4 rounded-xl font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-500 shadow-[0_8px_24px_rgba(0,0,0,0.2)] hover:scale-[1.02] transition-all whitespace-nowrap">Enviar consulta</button>
+</form>
+</div>
+</div>
+</section>
+
+<footer class="border-t py-12 text-center text-sm text-slate-500 dark:text-slate-400">
+<div class="flex items-center justify-center gap-3 mb-4"><img src="../assets/logo.svg" width="32" height="32" alt="Creaciones Harú logo"><span class="font-bold text-lg tracking-tight">CREACIONES <span style="color:#7C3AED">HARÚ</span></span></div>
+<p>Santiago, Chile • <a href="https://wa.me/56944685085" style="color:#7C3AED">+56 9 4468 5085</a> • <a href="../privacidad.html" style="color:#7C3AED">Política de Privacidad</a></p>
+</footer>
+
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  const observer = new IntersectionObserver((entries)=>{entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');observer.unobserve(en.target);}})},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+})();
+(function(){
+  var params = new URLSearchParams(location.search);
+  var el = document.querySelector('.form-status');
+  var msgs = {ok:'Gracias, tu consulta fue enviada. Te responderemos a la brevedad.',incompleto:'Revisa los campos: nombre, teléfono, correo y mensaje (mínimo 6 caracteres).',bloqueado:'No pudimos validar tu envío. Escríbenos por WhatsApp o a contacto@creacionesharu.cl.',error:'No pudimos enviar tu mensaje. Escríbenos por WhatsApp o a contacto@creacionesharu.cl.'};
+  var t = params.get('envio');
+  if(t&&el){var ok=(t==='ok');var icono=ok?'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:1px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>':'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';el.innerHTML='<div style="display:flex;gap:10px;align-items:flex-start">'+icono+'<span style="line-height:1.5">'+(msgs[t]||'')+'</span></div>';el.classList.remove('hidden');el.classList.add(ok?'text-green-800 dark:text-green-300 bg-green-50 dark:bg-green-900/25 border-green-200 dark:border-green-800':'text-red-800 dark:text-red-300 bg-red-50 dark:bg-red-900/25 border-red-200 dark:border-red-800');el.classList.add('border','show');history.replaceState(null,'',location.pathname+location.hash);}
+  document.querySelectorAll('form[action="../enviar.php"]').forEach(function(f){
+    var ts=f.querySelector('input[name="ts"]');if(ts)ts.value=Math.floor(Date.now()/1000);
+    var tel=f.querySelector('input[name="telefono"]');
+    f.addEventListener('submit',function(){
+      if(tel){var d=tel.value.replace(/[^0-9]/g,'');if(d.length===9&&d.charAt(0)==='9')tel.value='+56 9 '+d.slice(1,5)+' '+d.slice(5);else if(d.length===11&&d.slice(0,2)==='56')tel.value='+56 9 '+d.slice(3,7)+' '+d.slice(7);}
+      var b=f.querySelector('button[type="submit"]');if(b&&!b.disabled){b.disabled=true;b.setAttribute('aria-busy','true');b.innerHTML='<span class="btn-spinner" aria-hidden="true"></span>Enviando…';}
+    });
+  });
+  (function(){
+    var links=Array.prototype.slice.call(document.querySelectorAll('.nav-link,.mobile-link'));
+    if(!links.length)return;
+    var secs=links.map(function(a){var h=a.getAttribute('href');return (h&&h.charAt(0)==='#')?document.querySelector(h):null;}).filter(Boolean);
+    function marcar(){
+      var y=window.scrollY+120, act=secs[0];
+      for(var i=0;i<secs.length;i++){if(secs[i].offsetTop<=y)act=secs[i];}
+      links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+(act&&act.id));});
+    }
+    window.addEventListener('scroll',marcar,{passive:true});
+    window.addEventListener('load',marcar);
+    marcar();
+  })();
+  })();
+</script>
+<a href="https://wa.me/56944685085?text=Hola%20Creaciones%20Haru%2C%20quiero%20informaci%C3%B3n" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center shadow-[0_8px_24px_rgba(37,211,102,0.35)] transition-all hover:scale-105 focus:outline-none ring-2 ring-white dark:ring-white/20" aria-label="Escríbenos por WhatsApp" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="text-white" aria-hidden="true"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44Z"/><path d="M17.85 14.4c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.65 4.2 3.71.59.25 1.04.4 1.4.52.59.18 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg></a>
+</body>
+</html>
