@@ -29,9 +29,15 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 @media (max-width:767px){.nav-link.active::after{display:none}}
 .mobile-link.active{color:#F43F5E;background:rgba(0,0,0,.03)}
 .dark .mobile-link.active{background:rgba(255,255,255,.06)}
+.scrollbar-hide{scrollbar-width:none;-ms-overflow-style:none}
+.scrollbar-hide::-webkit-scrollbar{display:none}
+#carousel-portafolio{scroll-behavior:smooth}
+#carousel-portafolio > div{flex-shrink:0;width:80%;scroll-snap-align:start}
+@media (min-width:640px){#carousel-portafolio > div{width:46%}}
+@media (min-width:1024px){#carousel-portafolio > div{width:30%}}
 </style>
 </head>
-<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body class="overflow-x-hidden bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
 <nav class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800">
 <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center gap-3">
 <a href="../index.html" class="flex items-center gap-2 shrink-0">
@@ -69,7 +75,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 
 <header class="max-w-7xl mx-auto px-6 py-24 text-center reveal" style="transition-delay:50ms">
 <div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Energía y creatividad</div>
-<h1 class="text-5xl md:text-7xl font-extrabold leading-[1] mb-6" style="background:linear-gradient(135deg,#F43F5E 0%,#06B6D4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Vibrante Creativo</h1>
+<h1 class="text-3xl sm:text-5xl md:text-7xl font-extrabold leading-[1] mb-6" style="background:linear-gradient(135deg,#F43F5E 0%,#06B6D4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Vibrante Creativo</h1>
 <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">Colores vivos, gradientes dinámicos y energía creativa. Perfecto para marcas jóvenes, emprendedores y proyectos disruptivos.</p>
 <div class="flex flex-col md:flex-row gap-4 justify-center">
 <a href="#landing" class="px-8 py-3.5 rounded-full font-bold text-white bg-gradient-to-r from-rose-600 to-amber-500 shadow-[0_8px_24px_rgba(244,63,94,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Landing que Vende</a>
@@ -82,7 +88,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 <div class="grid md:grid-cols-2 gap-12 items-center reveal" style="transition-delay:100ms">
 <div>
 <div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Energía y creatividad</div>
-<h1 class="text-5xl md:text-6xl font-extrabold leading-[1] mb-6">Landing que Vende</h1>
+<h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-[1] mb-6">Landing que Vende</h1>
 <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-md">Diseñamos landing pages estratégicas que convierten. Cada elemento está pensado para guiar al visitante hacia la acción: ya sea una compra, una reserva o una consulta.</p>
 <div class="flex gap-4">
 <a href="#contacto" class="px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-rose-600 to-amber-500 shadow-[0_8px_24px_rgba(244,63,94,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Ver landings</a>
@@ -105,7 +111,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/propuesta-3-vibrante-landing.svg'" alt="Landing que Vende" class="w-full h-full object-cover img-cover rounded-3xl shadow-xl">
 </div></div>
 <div><div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Vibrante Creativo</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-6">Landing que Vende</h2>
+<h2 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-6">Landing que Vende</h2>
 <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">Tu presencia digital, optimizada para vender</p>
 <div class="space-y-6">
 <div class="flex items-start gap-4 reveal" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400 text-xl flex-shrink-0">🎯</div><div><h3 class="text-xl font-bold mb-2">Diseño enfocado en conversión</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Estructura de ventas probada, copy persuasivo y llamadas a la acción estratégicas.</p></div></div>
@@ -119,7 +125,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 <div class="grid md:grid-cols-2 gap-12 items-center reveal" style="transition-delay:100ms">
 <div>
 <div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Energía y creatividad</div>
-<h1 class="text-5xl md:text-6xl font-extrabold leading-[1] mb-6">Área de Ventas</h1>
+<h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-[1] mb-6">Área de Ventas</h1>
 <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-md">Nosotros buscamos los clientes por ti. Publicamos tu servicio en nuestras redes con campañas segmentadas y te entregamos contactos interesados, ya filtrados y listos para tu equipo comercial.</p>
 <div class="flex gap-4">
 <a href="#contacto" class="px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-rose-600 to-amber-500 shadow-[0_8px_24px_rgba(244,63,94,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Quiero leads</a>
@@ -136,7 +142,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 <div class="relative"><div class="absolute inset-0 bg-rose-600 to-cyan-500 opacity-15 rounded-3xl blur-xl"></div>
 <div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl aspect-video"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/propuesta-3-vibrante-ventas.svg'" alt="Área de Ventas" class="w-full h-full object-cover img-cover rounded-3xl shadow-xl"></div></div>
 <div><div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Vibrante Creativo</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-6">Área de Ventas</h2>
+<h2 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-6">Área de Ventas</h2>
 <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">Contactos filtrados, listos para cerrar</p>
 <div class="space-y-6">
 <div class="flex items-start gap-4 reveal" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400 text-xl flex-shrink-0">🎯</div><div><h3 class="text-xl font-bold mb-2">Desde $120.000 + IVA</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Planes accesibles para todo tipo de negocio, sin costos ocultos ni sorpresas.</p></div></div>
@@ -150,7 +156,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 <div class="grid md:grid-cols-2 gap-12 items-center reveal" style="transition-delay:100ms">
 <div>
 <div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Energía y creatividad</div>
-<h1 class="text-5xl md:text-6xl font-extrabold leading-[1] mb-6">Capacitación</h1>
+<h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-[1] mb-6">Capacitación</h1>
 <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed max-w-md">Taller práctico de Creaciones Haru: de cero a landing lista con copy, diseño y Meta Ads.</p>
 <div class="flex gap-4">
 <a href="#contacto" class="px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-rose-600 to-amber-500 shadow-[0_8px_24px_rgba(244,63,94,0.3)] hover:opacity-90 transition-all whitespace-nowrap">Inscribirme</a>
@@ -167,7 +173,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 <div class="relative"><div class="absolute inset-0 bg-rose-600 to-cyan-500 opacity-15 rounded-3xl blur-xl"></div>
 <div class="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl aspect-video"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/propuesta-3-vibrante-capacitacion.svg'" alt="Capacitación" class="w-full h-full object-cover img-cover rounded-3xl shadow-xl"></div></div>
 <div><div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Vibrante Creativo</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-6">Capacitación</h2>
+<h2 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-6">Capacitación</h2>
 <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">Aprende a crear landings que venden</p>
 <div class="space-y-6">
 <div class="flex items-start gap-4 reveal" style="transition-delay:200ms"><div class="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400 text-xl flex-shrink-0">🎯</div><div><h3 class="text-xl font-bold mb-2">4 módulos prácticos</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Copy persuasivo, diseño estratégico, desarrollo con Tailwind y campañas de Meta Ads.</p></div></div>
@@ -179,7 +185,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 
 <section class="py-24 max-w-7xl mx-auto px-6 reveal" style="transition-delay:300ms">
 <div class="text-center mb-16"><div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Proceso</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-6">Nuestro proceso</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Desde la idea hasta el lanzamiento, te acompañamos en cada paso.</p></div>
+<h2 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-6">Nuestro proceso</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Desde la idea hasta el lanzamiento, te acompañamos en cada paso.</p></div>
 <div class="grid md:grid-cols-4 gap-8">
 <div class="text-center reveal" style="transition-delay:200ms"><div class="w-14 h-14 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-2xl font-bold text-rose-600 dark:text-rose-400">01</span></div><h3 class="text-xl font-bold mb-3">Brief y estrategia</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Entendemos tu rubro, cliente ideal y objetivos.</p></div>
 <div class="text-center reveal" style="transition-delay:300ms"><div class="w-14 h-14 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center mx-auto mb-6 shadow-lg"><span class="text-2xl font-bold text-rose-600 dark:text-rose-400">02</span></div><h3 class="text-xl font-bold mb-3">Diseño y copy</h3><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Wireframe, copy persuasivo y diseño visual.</p></div>
@@ -190,7 +196,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 
 <section id="planes" class="py-24 bg-white dark:bg-slate-950 max-w-7xl mx-auto px-6 reveal" style="transition-delay:400ms">
 <div class="text-center mb-16"><div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Planes</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-6">Planes que se ajustan a ti</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Elige el plan que mejor se adapte a tu negocio.</p></div>
+<h2 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-6">Planes que se ajustan a ti</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Elige el plan que mejor se adapte a tu negocio.</p></div>
 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 relative">
 <div class="space-y-4"><h3 class="text-xl font-bold">Starter</h3>
@@ -216,7 +222,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 
 <section class="py-24 bg-slate-50 dark:bg-slate-900/30 max-w-7xl mx-auto px-6 reveal" style="transition-delay:500ms">
 <div class="text-center mb-16"><div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Testimonios</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-6">Lo que dicen nuestros clientes</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Historias reales de negocios que crecieron con Creaciones Haru.</p></div>
+<h2 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-6">Lo que dicen nuestros clientes</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Historias reales de negocios que crecieron con Creaciones Haru.</p></div>
 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800"><div class="flex items-center gap-4 mb-6"><img src="../img/avatar-mg.svg" alt="María González" class="w-12 h-12 rounded-full object-cover"><div><h3 class="text-lg font-bold">María González</h3><p class="text-sm text-slate-500 dark:text-slate-400">Fundadora, EcoStore</p></div></div><div class="text-yellow-400 text-sm mb-4">⭐⭐⭐⭐⭐</div><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed italic">"La landing triplicó nuestras conversiones."</p></div>
 <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800"><div class="flex items-center gap-4 mb-6"><img src="../img/avatar-cr.svg" alt="Carlos Ruiz" class="w-12 h-12 rounded-full object-cover"><div><h3 class="text-lg font-bold">Carlos Ruiz</h3><p class="text-sm text-slate-500 dark:text-slate-400">CEO, TechFlow</p></div></div><div class="text-yellow-400 text-sm mb-4">⭐⭐⭐⭐⭐</div><p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed italic">"25 leads calificados en dos semanas."</p></div>
@@ -226,9 +232,9 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 
 <section id="portafolio" class="py-24 bg-slate-50 dark:bg-slate-900/30 max-w-7xl mx-auto px-6">
 <div class="text-center mb-16 reveal" style="transition-delay:100ms"><div class="inline-flex bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 px-4 py-1.5 rounded-full text-xs font-semibold mb-6">Nuestros trabajos</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-6">Portafolio</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Proyectos reales que hemos desarrollado para nuestros clientes.</p></div>
-<div class="relative"><button onclick="moverCarousel(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-900 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all z-10"><svg class="w-6 h-6 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
-<button onclick="moverCarousel(1)" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-900 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all z-10"><svg class="w-6 h-6 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
+<h2 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-6">Portafolio</h2><p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Proyectos reales que hemos desarrollado para nuestros clientes.</p></div>
+<div class="relative"><button onclick="moverCarousel(-1)" class="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-900 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all z-10"><svg class="w-6 h-6 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+<button onclick="moverCarousel(1)" class="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-slate-900 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all z-10"><svg class="w-6 h-6 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
 <div id="carousel-portafolio" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide reveal" style="transition-delay:200ms; scrollbar-width: none;">
 <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md hover:shadow-xl transition-all group cursor-pointer" onclick="window.open('#', '_blank')"><div class="h-48 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=480&h=360&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/portfolio-1.svg'" alt="E-commerce Moda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"><div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><span class="text-white font-bold text-lg">Ver proyecto →</span></div></div><div class="p-5"><h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">E-commerce Moda</h3><p class="text-sm text-slate-500 dark:text-slate-400">Tienda online de ropa</p></div></div>
 <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-md hover:shadow-xl transition-all group cursor-pointer" onclick="window.open('#', '_blank')"><div class="h-48 relative overflow-hidden"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=480&h=360&q=80" loading="lazy" onerror="this.onerror=null;this.src='../img/portfolio-2.svg'" alt="App Delivery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"><div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center"><span class="text-white font-bold text-lg">Ver proyecto →</span></div></div><div class="p-5"><h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">App Delivery</h3><p class="text-sm text-slate-500 dark:text-slate-400">Plataforma de comida</p></div></div>
@@ -241,7 +247,7 @@ button[type=submit][disabled]{opacity:.85;cursor:not-allowed;pointer-events:none
 </section>
 <script>
 function moverCarousel(d){var c=document.getElementById('carousel-portafolio');var i=document.querySelectorAll('#carousel-portafolio > div');if(!c||!i.length)return;var w=i[0].offsetWidth+24;var m=c.scrollWidth-c.clientWidth;var n=Math.max(0,Math.min(m,c.scrollLeft+(w*d)));c.scrollTo({left:n,behavior:'smooth'});}
-setInterval(function(){var c=document.getElementById('carousel-portafolio');var i=document.querySelectorAll('#carousel-portafolio > div');if(!c||!i.length)return;var w=i[0].offsetWidth+24;var m=c.scrollWidth-c.clientWidth;if(c.scrollLeft>=m-10){c.scrollTo({left:0,behavior:'smooth'});}else{c.scrollTo({left:c.scrollLeft+w,behavior:'smooth'});}},5000);
+(function(){var c=document.getElementById('carousel-portafolio');if(!c)return;var timer=null,act=null;function paso(){var i=c.children;if(!i.length)return;var w=i[0].offsetWidth+24;var m=c.scrollWidth-c.clientWidth;if(c.scrollLeft>=m-10){c.scrollTo({left:0,behavior:'smooth'});}else{c.scrollTo({left:c.scrollLeft+w,behavior:'smooth'});}}function arrancar(){clearInterval(timer);timer=setInterval(paso,5000);}function parar(){clearInterval(timer);clearTimeout(act);act=setTimeout(arrancar,8000);}['touchstart','pointerdown','wheel','mouseenter'].forEach(function(ev){c.addEventListener(ev,parar,{passive:true});});['mouseleave'].forEach(function(ev){c.addEventListener(ev,arrancar,{passive:true});});arrancar();})();
 </script>
 
 <section id="contacto" class="py-24 bg-gradient-to-br from-slate-50 dark:from-slate-950/50 to-white dark:to-slate-950 max-w-7xl mx-auto px-6">
